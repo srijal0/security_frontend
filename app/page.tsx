@@ -1,65 +1,69 @@
-import Image from "next/image";
+"use client";
+import { useRouter } from "next/navigation";
 
-export default function Home() {
+export default function HomePage() {
+  const router = useRouter();
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <style>{`
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', sans-serif; background: #0f1923; color: #fff; }
+        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; text-align: center; }
+        .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 48px; }
+        .logo-icon { width: 56px; height: 56px; background: #1a6b3a; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+        .logo-text { font-size: 28px; font-weight: 800; color: #fff; }
+        .logo-text span { color: #2dce89; }
+        .hero-title { font-size: 48px; font-weight: 900; color: #fff; margin-bottom: 16px; line-height: 1.1; }
+        .hero-title span { color: #2dce89; }
+        .hero-sub { font-size: 16px; color: #8899aa; max-width: 480px; line-height: 1.7; margin-bottom: 40px; }
+        .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 60px; }
+        .btn-primary { padding: 14px 32px; background: #1a6b3a; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; transition: background 0.15s; }
+        .btn-primary:hover { background: #22854a; }
+        .btn-secondary { padding: 14px 32px; background: transparent; color: #fff; border: 1.5px solid #2a3a4a; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; transition: border-color 0.15s; }
+        .btn-secondary:hover { border-color: #2dce89; color: #2dce89; }
+        .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 800px; width: 100%; }
+        .feature { background: #1a2332; border: 1px solid #2a3a4a; border-radius: 12px; padding: 24px; text-align: center; }
+        .feature-icon { font-size: 32px; margin-bottom: 12px; }
+        .feature-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+        .feature-desc { font-size: 12px; color: #8899aa; line-height: 1.6; }
+        @media (max-width: 600px) { .features { grid-template-columns: 1fr; } .hero-title { font-size: 32px; } }
+      `}</style>
+      <div className="hero">
+        <div className="logo">
+          <div className="logo-icon">🏦</div>
+          <div className="logo-text">Bank<span>Secure</span></div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <h1 className="hero-title">Banking that puts<br /><span>security first</span></h1>
+        <p className="hero-sub">
+          Experience next-generation digital banking with military-grade encryption,
+          multi-factor authentication, and real-time fraud protection.
+        </p>
+        <div className="hero-btns">
+          <button className="btn-primary" onClick={() => router.push("/register")}>
+            Open Account →
+          </button>
+          <button className="btn-secondary" onClick={() => router.push("/login")}>
+            Sign In
+          </button>
         </div>
-      </main>
-    </div>
+        <div className="features">
+          <div className="feature">
+            <div className="feature-icon">🔐</div>
+            <div className="feature-title">MFA Protected</div>
+            <div className="feature-desc">Every login secured with OTP-based two-factor authentication</div>
+          </div>
+          <div className="feature">
+            <div className="feature-icon">🛡️</div>
+            <div className="feature-title">Brute-Force Protection</div>
+            <div className="feature-desc">Account auto-locks after 5 failed attempts with rate limiting</div>
+          </div>
+          <div className="feature">
+            <div className="feature-icon">🔒</div>
+            <div className="feature-title">256-bit Encryption</div>
+            <div className="feature-desc">All data encrypted in transit and at rest using industry standards</div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
