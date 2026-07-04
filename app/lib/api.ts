@@ -66,7 +66,7 @@ export const authAPI = {
 export const accountAPI = {
   getAccount: () => request<{ user: User }>("GET", "/account", undefined, true),
 
-  updateProfile: (data: { fullName?: string; phone?: string }) =>
+  updateProfile: (data: { fullName?: string; phone?: string; profilePicture?: string }) =>
     request<{ message: string; user: User }>("PUT", "/account/profile", data, true),
 
   changePassword: (currentPassword: string, newPassword: string) =>
@@ -112,6 +112,7 @@ export interface User {
   accountNumber: string;
   balance: number;
   phone?: string;
+  profilePicture?: string;
   isVerified?: boolean;
   isLocked?: boolean;
   lastLogin?: string;
