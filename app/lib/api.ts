@@ -73,6 +73,19 @@ export const accountAPI = {
     request<{ message: string }>("PUT", "/account/change-password", {
       currentPassword, newPassword,
     }, true),
+    uploadProfilePicture: async (file: File) => {
+    const token = getToken();
+    const formData = new FormData();
+    formData.append("profilePicture", file);
+    const res = await fetch(`${BASE_URL}/account/profile-picture`, {
+      method: "POST",
+      headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+      body: formData, // ✅ no Content-Type header — browser sets multipart boundary automatically
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || `Request failed: ${res.status}`);
+    return data as { message: string; profilePicture: string };
+  },
 };
 
 // ── TRANSACTIONS ──

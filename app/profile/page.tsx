@@ -35,7 +35,7 @@ export default function ProfilePage() {
       .finally(() => setPageLoading(false));
   }, []);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -49,9 +49,14 @@ export default function ProfilePage() {
     }
 
     setError("");
-    const reader = new FileReader();
-    reader.onload = () => setProfilePicture(reader.result as string);
-    reader.readAsDataURL(file);
+    setMessage("");
+    try {
+      const res = await accountAPI.uploadProfilePicture(file);
+      setProfilePicture(res.profilePicture);
+      setMessage(res.message);
+    } catch (err: any) {
+      setError(err.message);
+    }
   };
 
   const handleSave = async (e: React.FormEvent) => {
@@ -60,7 +65,7 @@ export default function ProfilePage() {
     setMessage("");
     setLoading(true);
     try {
-      const res = await accountAPI.updateProfile({ fullName, phone, profilePicture });
+      const res = await accountAPI.updateProfile({ fullName, phone });
       setMessage(res.message);
     } catch (err: any) {
       setError(err.message);
@@ -126,7 +131,11 @@ export default function ProfilePage() {
 
               <div className="avatar-row">
                 {profilePicture ? (
-                  <img src={profilePicture} alt="Profile" className="avatar" />
+                  <img
+                    src={`http://localhost:5001${profilePicture}`}
+                    alt="Profile"
+                    className="avatar"
+                  />
                 ) : (
                   <div className="avatar">{fullName?.[0]?.toUpperCase() || "U"}</div>
                 )}
