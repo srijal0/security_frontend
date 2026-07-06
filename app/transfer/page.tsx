@@ -51,27 +51,38 @@ export default function TransferPage() {
 
   return (
     <div style={{ maxWidth: 480, margin: "40px auto", padding: 24 }}>
+      <style>{`
+        /* Accessibility: visible focus indicator (WCAG 2.1 SC 2.4.7) */
+        input:focus, button:focus {
+          outline: 2px solid #2dce89;
+          outline-offset: 2px;
+        }
+        label { display: block; margin-top: 12px; margin-bottom: 4px; font-size: 13px; font-weight: 600; }
+      `}</style>
       <h1>Transfer Money</h1>
 
       {error && <div style={{ color: "#ff6b6b", margin: "12px 0" }}>{error}</div>}
 
       {step === "form" && (
         <form onSubmit={handleReview}>
-          <label>Recipient Account Number</label>
+          <label htmlFor="transfer-account">Recipient Account Number</label>
           <input
+            id="transfer-account"
             value={toAccountNumber}
             onChange={(e) => setToAccountNumber(e.target.value)}
             placeholder="BS12345678"
           />
-          <label>Amount (Rs)</label>
+          <label htmlFor="transfer-amount">Amount (Rs)</label>
           <input
+            id="transfer-amount"
             type="number"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="1000"
           />
-          <label>Description (optional)</label>
+          <label htmlFor="transfer-description">Description (optional)</label>
           <input
+            id="transfer-description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Rent, gift, etc."
