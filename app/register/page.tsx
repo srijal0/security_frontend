@@ -52,6 +52,14 @@ export default function RegisterPage() {
         .auth-link { color: #2dce89; text-decoration: none; font-weight: 600; }
         .auth-link:hover { text-decoration: underline; }
         .password-hint { font-size: 11px; color: #6a7a8a; margin-top: 4px; }
+
+        /* Accessibility: visible focus indicator (WCAG 2.1 SC 2.4.7) */
+        .auth-input:focus,
+        .auth-btn:focus,
+        .auth-link:focus {
+          outline: 2px solid #2dce89;
+          outline-offset: 2px;
+        }
       `}</style>
       <div className="auth-wrap">
         <div className="auth-card">
@@ -64,23 +72,23 @@ export default function RegisterPage() {
           {error && <div className="auth-error">{error}</div>}
           <form onSubmit={handleSubmit}>
             <div className="auth-field">
-              <label className="auth-label">Full Name</label>
-              <input className="auth-input" type="text" placeholder="John Doe"
+              <label className="auth-label" htmlFor="register-fullname">Full Name</label>
+              <input id="register-fullname" className="auth-input" type="text" placeholder="John Doe"
                 value={form.fullName} onChange={e => setForm({ ...form, fullName: e.target.value })} />
             </div>
             <div className="auth-field">
-              <label className="auth-label">Email Address</label>
-              <input className="auth-input" type="email" placeholder="john@example.com"
+              <label className="auth-label" htmlFor="register-email">Email Address</label>
+              <input id="register-email" className="auth-input" type="email" placeholder="john@example.com"
                 value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} />
             </div>
             <div className="auth-field">
-              <label className="auth-label">Phone Number</label>
-              <input className="auth-input" type="text" placeholder="+977 98XXXXXXXX"
+              <label className="auth-label" htmlFor="register-phone">Phone Number</label>
+              <input id="register-phone" className="auth-input" type="text" placeholder="+977 98XXXXXXXX"
                 value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} />
             </div>
             <div className="auth-field">
-              <label className="auth-label">Password</label>
-              <input className="auth-input" type="password" placeholder="Min 8 chars"
+              <label className="auth-label" htmlFor="register-password">Password</label>
+              <input id="register-password" className="auth-input" type="password" placeholder="Min 8 chars"
                 value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} />
               <p className="password-hint">Must include uppercase, lowercase, number & special character</p>
             </div>
