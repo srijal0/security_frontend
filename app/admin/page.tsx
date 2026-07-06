@@ -104,6 +104,13 @@ export default function AdminPage() {
         .msg-success { background: rgba(45,206,137,0.1); border: 1px solid rgba(45,206,137,0.3); color: #2dce89; font-size: 12px; padding: 10px 14px; border-radius: 8px; margin-bottom: 16px; }
         .msg-error { background: rgba(255,80,80,0.1); border: 1px solid rgba(255,80,80,0.3); color: #ff6b6b; font-size: 12px; padding: 10px 14px; border-radius: 8px; margin-bottom: 16px; }
         .empty { text-align: center; padding: 40px; color: #8899aa; font-size: 13px; }
+
+        /* Accessibility: visible focus indicator (WCAG 2.1 SC 2.4.7) */
+        .tab-btn:focus,
+        .action-btn:focus {
+          outline: 2px solid #2dce89;
+          outline-offset: 2px;
+        }
       `}</style>
       <div className="admin-wrap">
         <div className="admin-card">
@@ -126,7 +133,7 @@ export default function AdminPage() {
               <table>
                 <thead>
                   <tr>
-                    <th>Name</th><th>Email</th><th>Account #</th><th>Balance</th><th>Status</th><th>Verified</th><th>Action</th>
+                    <th scope="col">Name</th><th scope="col">Email</th><th scope="col">Account #</th><th scope="col">Balance</th><th scope="col">Status</th><th scope="col">Verified</th><th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -163,7 +170,7 @@ export default function AdminPage() {
               <table>
                 <thead>
                   <tr>
-                    <th>Sender</th><th>Receiver</th><th>Amount</th><th>Status</th><th>Reference</th><th>Date</th>
+                    <th scope="col">Sender</th><th scope="col">Receiver</th><th scope="col">Amount</th><th scope="col">Status</th><th scope="col">Reference</th><th scope="col">Date</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -185,7 +192,7 @@ export default function AdminPage() {
               <table>
                 <thead>
                   <tr>
-                    <th>User</th><th>Action</th><th>Status</th><th>Details</th><th>IP</th><th>Date</th>
+                    <th scope="col">User</th><th scope="col">Action</th><th scope="col">Status</th><th scope="col">Details</th><th scope="col">IP</th><th scope="col">Date</th>
                   </tr>
                 </thead>
                 <tbody>
