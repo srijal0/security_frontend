@@ -56,13 +56,13 @@ export default function TransactionsPage() {
             <table className="tx-table">
               <thead>
                 <tr>
-                  <th>Direction</th>
-                  <th>Counterparty</th>
-                  <th>Description</th>
-                  <th>Amount</th>
-                  <th>Status</th>
-                  <th>Reference</th>
-                  <th>Date</th>
+                  <th scope="col">Direction</th>
+                  <th scope="col">Counterparty</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Reference</th>
+                  <th scope="col">Date</th>
                 </tr>
               </thead>
               <tbody>
