@@ -54,6 +54,14 @@ export default function LoginPage() {
         .auth-link { color: #2dce89; text-decoration: none; font-weight: 600; }
         .auth-link:hover { text-decoration: underline; }
         .security-badge { display: flex; align-items: center; gap: 8px; background: rgba(45,206,137,0.08); border: 1px solid rgba(45,206,137,0.2); border-radius: 8px; padding: 10px 14px; margin-bottom: 20px; font-size: 12px; color: #2dce89; }
+
+        /* Accessibility: visible focus indicator (WCAG 2.1 SC 2.4.7) */
+        .auth-input:focus,
+        .auth-btn:focus,
+        .auth-link:focus {
+          outline: 2px solid #2dce89;
+          outline-offset: 2px;
+        }
       `}</style>
       <div className="auth-wrap">
         <div className="auth-card">
@@ -69,13 +77,13 @@ export default function LoginPage() {
           {error && <div className="auth-error">{error}</div>}
           <form onSubmit={handleSubmit}>
             <div className="auth-field">
-              <label className="auth-label">Email Address</label>
-              <input className="auth-input" type="email" placeholder="john@example.com"
+              <label className="auth-label" htmlFor="login-email">Email Address</label>
+              <input id="login-email" className="auth-input" type="email" placeholder="john@example.com"
                 value={email} onChange={e => setEmail(e.target.value)} />
             </div>
             <div className="auth-field">
-              <label className="auth-label">Password</label>
-              <input className="auth-input" type="password" placeholder="••••••••"
+              <label className="auth-label" htmlFor="login-password">Password</label>
+              <input id="login-password" className="auth-input" type="password" placeholder="••••••••"
                 value={password} onChange={e => setPassword(e.target.value)} />
             </div>
             <button className="auth-btn" type="submit" disabled={loading}>
