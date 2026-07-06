@@ -116,6 +116,14 @@ export default function ProfilePage() {
         .profile-btn { width: 100%; padding: 13px; background: #1a6b3a; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; transition: background 0.15s; margin-top: 8px; }
         .profile-btn:hover { background: #22854a; }
         .profile-btn:disabled { opacity: 0.6; cursor: default; }
+
+        /* Accessibility: visible focus indicator (WCAG 2.1 SC 2.4.7) */
+        .profile-input:focus,
+        .profile-btn:focus,
+        .avatar-btn:focus {
+          outline: 2px solid #2dce89;
+          outline-offset: 2px;
+        }
       `}</style>
       <div className="profile-wrap">
         <div className="profile-card">
@@ -142,18 +150,15 @@ export default function ProfilePage() {
                 <div>
                   <input
                     ref={fileInputRef}
+                    id="profile-picture-upload"
                     type="file"
                     accept="image/png,image/jpeg,image/webp"
                     style={{ display: "none" }}
                     onChange={handleFileChange}
                   />
-                  <button
-                    type="button"
-                    className="avatar-btn"
-                    onClick={() => fileInputRef.current?.click()}
-                  >
+                  <label htmlFor="profile-picture-upload" className="avatar-btn" style={{ display: "inline-block", cursor: "pointer" }}>
                     Change Photo
-                  </button>
+                  </label>
                 </div>
               </div>
 
@@ -170,16 +175,18 @@ export default function ProfilePage() {
 
               <form onSubmit={handleSave}>
                 <div className="profile-field">
-                  <label className="profile-label">Full Name</label>
+                  <label className="profile-label" htmlFor="profile-fullname">Full Name</label>
                   <input
+                    id="profile-fullname"
                     className="profile-input"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                   />
                 </div>
                 <div className="profile-field">
-                  <label className="profile-label">Phone</label>
+                  <label className="profile-label" htmlFor="profile-phone">Phone</label>
                   <input
+                    id="profile-phone"
                     className="profile-input"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
@@ -202,8 +209,9 @@ export default function ProfilePage() {
 
           <form onSubmit={handleChangePassword}>
             <div className="profile-field">
-              <label className="profile-label">Current Password</label>
+              <label className="profile-label" htmlFor="profile-current-password">Current Password</label>
               <input
+                id="profile-current-password"
                 className="profile-input"
                 type="password"
                 value={currentPassword}
@@ -211,8 +219,9 @@ export default function ProfilePage() {
               />
             </div>
             <div className="profile-field">
-              <label className="profile-label">New Password</label>
+              <label className="profile-label" htmlFor="profile-new-password">New Password</label>
               <input
+                id="profile-new-password"
                 className="profile-input"
                 type="password"
                 value={newPassword}
