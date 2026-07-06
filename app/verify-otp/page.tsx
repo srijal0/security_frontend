@@ -82,6 +82,14 @@ function OTPForm() {
         .resend-btn:disabled { color: #8899aa; text-decoration: none; cursor: default; }
         .countdown { color: #8899aa; font-size: 13px; margin-top: 16px; }
         .security-info { display: flex; align-items: center; gap: 8px; background: rgba(45,206,137,0.08); border: 1px solid rgba(45,206,137,0.2); border-radius: 8px; padding: 10px 14px; margin-bottom: 20px; font-size: 12px; color: #2dce89; text-align: left; }
+
+        /* Accessibility: visible focus indicator (WCAG 2.1 SC 2.4.7) */
+        .otp-input:focus,
+        .auth-btn:focus,
+        .resend-btn:focus {
+          outline: 2px solid #2dce89;
+          outline-offset: 2px;
+        }
       `}</style>
       <div className="auth-wrap">
         <div className="auth-card">
@@ -99,9 +107,14 @@ function OTPForm() {
           {error && <div className="auth-error">{error}</div>}
           {success && <div className="auth-success">{success}</div>}
           <form onSubmit={handleVerify}>
+            <label htmlFor="otp-code" style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0,0,0,0)" }}>
+              6-digit one-time password
+            </label>
             <input
+              id="otp-code"
               className="otp-input"
               type="text"
+              inputMode="numeric"
               placeholder="000000"
               maxLength={6}
               value={otp}
