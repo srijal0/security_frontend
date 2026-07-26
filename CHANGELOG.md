@@ -19,6 +19,9 @@ All notable changes to this project are documented here.
 - Accessibility: added table header scope attributes for screen reader navigation
 - Accidental exposure of `.env.example` blocked by an overly broad `.gitignore` rule
 
+## Security Testing Summary
+Internal penetration testing completed across 9 test scenarios (authentication, RBAC, IDOR, input validation, mass assignment, business logic, XSS) plus 2 documented vulnerability case studies with before/after evidence (fund transfer race condition, RBAC middleware fault). See the backend repository's SECURITY.md and the accompanying project report for full details.
+
 ### Security
 - Client never sends sender identity in transfer requests — resolved server-side from JWT
 - Client-side validation treated as UX-only; all enforcement verified server-side
