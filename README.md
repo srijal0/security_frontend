@@ -13,6 +13,9 @@ Next.js frontend for the BankSecure digital banking application.
 - Node.js 20+
 - A running instance of the BankSecure backend (see backend README)
 
+## Security Testing
+This frontend was tested alongside the BankSecure backend across authentication, RBAC, IDOR, input validation, mass assignment, business logic, and XSS scenarios. See the backend repository's SECURITY.md and the project report for full findings and evidence.
+
 ## Setup
 
 1. Clone the repository
