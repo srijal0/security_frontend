@@ -1,4 +1,6 @@
 # Changelog
+## Final Polish
+Minor improvements: Prettier config, robots.txt, gitattributes, package metadata updates ahead of submission.
 
 All notable changes to this project are documented here.
 
