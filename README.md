@@ -21,5 +21,8 @@ This frontend was tested alongside the BankSecure backend across authentication,
 Icons and images include descriptive alt text. Form inputs use visible focus outlines and linked labels (see SECURITY.md for details).
 ## Setup
 
+## Empty States
+The Transactions page displays a clear message when no transactions exist yet, rather than a blank table.
+
 1. Clone the repository
 2. Copy `.env.example` to `.env.local` and set your backend API URL:
