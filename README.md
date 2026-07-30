@@ -33,5 +33,8 @@ Tested on latest Chrome and Edge. Uses modern JavaScript features (fetch, async/
 ## Session Handling
 Authentication uses JWT tokens with a fixed expiry rather than server-side cookie sessions, since frontend and backend run on separate origins.
 
+## Future Improvements
+Passwordless authentication (WebAuthn), distributed rate limiting (Redis), and server-side input sanitization for stored fields are planned enhancements.
+
 1. Clone the repository
 2. Copy `.env.example` to `.env.local` and set your backend API URL:
