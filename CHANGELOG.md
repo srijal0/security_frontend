@@ -1,4 +1,6 @@
 # Changelog
+## v1.1 — Documentation and Tooling Polish
+Added SUPPORT.md, CODE_OF_CONDUCT.md, TESTING.md, security headers documentation, VS Code settings, and expanded README coverage of session handling, environment setup, and future improvements.
 ## Final Polish
 Minor improvements: Prettier config, robots.txt, gitattributes, package metadata updates ahead of submission.
 
