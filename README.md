@@ -27,5 +27,8 @@ The Transactions page displays a clear message when no transactions exist yet, r
 ## Environment Setup
 Copy `.env.example` to `.env` and fill in real values before running locally. Never commit `.env` directly.
 
+## Browser Support
+Tested on latest Chrome and Edge. Uses modern JavaScript features (fetch, async/await).
+
 1. Clone the repository
 2. Copy `.env.example` to `.env.local` and set your backend API URL:
