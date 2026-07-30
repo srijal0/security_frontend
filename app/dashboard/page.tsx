@@ -188,10 +188,10 @@ export default function DashboardPage() {
         {/* Main Content */}
         <main className="dash-main">
           <div className="dash-header">
-            // SECURITY NOTE: fullName is stored unescaped server-side. React's default
-           // JSX escaping prevents XSS here, but this should not be the only control —
-          // see SECURITY.md (backend repo) for the full finding.
-            <h1 className="dash-title">Welcome back, {user.fullName.split(" ")[0]}! 👋</h1>
+            {/* SECURITY NOTE: fullName is stored unescaped server-side. React's default
+    JSX escaping prevents XSS here, but this should not be the only control —
+    see SECURITY.md (backend repo) for the full finding. */}
+<h1>Welcome back, {user.fullName}! 👋</h1>
             <p className="dash-sub">Account: {user.accountNumber} · Last login: {user.lastLogin ? new Date(user.lastLogin).toLocaleString() : "First login"}</p>
           </div>
 
