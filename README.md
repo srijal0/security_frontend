@@ -24,5 +24,8 @@ Icons and images include descriptive alt text. Form inputs use visible focus out
 ## Empty States
 The Transactions page displays a clear message when no transactions exist yet, rather than a blank table.
 
+## Environment Setup
+Copy `.env.example` to `.env` and fill in real values before running locally. Never commit `.env` directly.
+
 1. Clone the repository
 2. Copy `.env.example` to `.env.local` and set your backend API URL:
