@@ -38,3 +38,5 @@ Passwordless authentication (WebAuthn), distributed rate limiting (Redis), and s
 
 1. Clone the repository
 2. Copy `.env.example` to `.env.local` and set your backend API URL:
+---
+© 2026 Shreejal Shrestha. Academic coursework project (ST6005CEM).
