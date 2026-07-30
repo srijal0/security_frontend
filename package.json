@@ -1,5 +1,6 @@
 {
   "name": "banksecure-frontend",
+  "description": "Secure digital banking frontend built with Next.js, featuring MFA, RBAC, and atomic transaction handling.",  
   "version": "0.1.0",
   "private": true,
   "scripts": {
