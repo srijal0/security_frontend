@@ -30,5 +30,8 @@ Copy `.env.example` to `.env` and fill in real values before running locally. Ne
 ## Browser Support
 Tested on latest Chrome and Edge. Uses modern JavaScript features (fetch, async/await).
 
+## Session Handling
+Authentication uses JWT tokens with a fixed expiry rather than server-side cookie sessions, since frontend and backend run on separate origins.
+
 1. Clone the repository
 2. Copy `.env.example` to `.env.local` and set your backend API URL:
